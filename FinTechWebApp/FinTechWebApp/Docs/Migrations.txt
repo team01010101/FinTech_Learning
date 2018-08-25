@@ -1,0 +1,3 @@
+﻿Enable-Migrations -ContextTypeName HackathonContext -MigrationsDirectory Migrations\Hackathon
+add-migration -ConfigurationTypeName FinTechWebApp.Migrations.Hackathon.Configuration "InitialCreate"
+update-database -ConfigurationTypeName FinTechWebApp.Migrations.Hackathon.Configuration 

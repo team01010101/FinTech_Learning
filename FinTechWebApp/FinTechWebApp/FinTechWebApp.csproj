@@ -192,10 +192,27 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Data\HackathonContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Enumerators.cs" />
+    <Compile Include="Migrations\Hackathon\201808252129483_InitialCreate.cs" />
+    <Compile Include="Migrations\Hackathon\201808252129483_InitialCreate.Designer.cs">
+      <DependentUpon>201808252129483_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Hackathon\201808252148172_CreateTables.cs" />
+    <Compile Include="Migrations\Hackathon\201808252148172_CreateTables.Designer.cs">
+      <DependentUpon>201808252148172_CreateTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Hackathon\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Hackathon\Loan.cs" />
+    <Compile Include="Models\Hackathon\LoanRequest.cs" />
+    <Compile Include="Models\Hackathon\Notification.cs" />
+    <Compile Include="Models\Hackathon\Payment.cs" />
+    <Compile Include="Models\Hackathon\User.cs" />
+    <Compile Include="Models\Hackathon\UserRole.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -204,6 +221,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Docs\Migrations.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -274,6 +292,14 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\Hackathon\201808252129483_InitialCreate.resx">
+      <DependentUpon>201808252129483_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Hackathon\201808252148172_CreateTables.resx">
+      <DependentUpon>201808252148172_CreateTables.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
