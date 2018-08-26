@@ -22,5 +22,11 @@ namespace FinTechWebApp.Helpers
             Finished,
             Canceled
         }
+
+        public enum PaymentStatus
+        {
+            Payed = 1,
+            NotPayed
+        }
     }
 }

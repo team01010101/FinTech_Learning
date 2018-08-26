@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FinTechWebApp.Models;
 using FinTechWebApp.Models.Hackathon;
+using FinTechWebApp.Models.Services;
 
 namespace FinTechWebApp.Controllers
 {
@@ -70,16 +71,8 @@ namespace FinTechWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
-            if (ModelState.IsValid)
-            {
-                using(var context = new HackathonContext())
-                {
-                    if (context.Users.FirstOrDefault(x => x.Username == model.UserName) != null)
-                    {
-                        return RedirectToAction("Index", "UserHome");
-                    }
-                }
-            }
+            if (ModelState.IsValid && UserService.FindUser(model.UserName))
+                return RedirectToAction("Index", "UserHome", new { username = model.UserName});
 
             return View(model);
             // This doesn't count login failures towards account lockout
@@ -158,49 +151,28 @@ namespace FinTechWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                using (var context = new HackathonContext())
-                {
-                    try
-                    {
-                        context.Users.Add(new User
-                        {
-                            UserId = model.UserId,
-                            Name = model.Name,
-                            LastName = model.LastName,
-                            EmailAddress = model.EmailAddress,
-                            Password = model.Password,
-                            Username = model.Username
-                        });
-                        context.SaveChanges();
-                        return RedirectToAction("Index", "UserHome");
-                    }
-                    catch (Exception)
-                    {
-                        // ignored
-                    }
-                }
+            if (ModelState.IsValid && UserService.AddUser(model))
+                return RedirectToAction("Index", "UserHome", new {username = model.Username});
 
-                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                //var result = await UserManager.CreateAsync(user, model.Password);
-                //if (result.Succeeded)
-                //{
-                //    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+            return View(model);
 
-                //    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                //    // Send an email with this link
-                //    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                //    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                //    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+            //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            //var result = await UserManager.CreateAsync(user, model.Password);
+            //if (result.Succeeded)
+            //{
+            //    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
-                //    return RedirectToAction("Index", "Home");
-                //}
-                //AddErrors(result);
-            }
+            //    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+            //    // Send an email with this link
+            //    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+            //    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+            //    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+            //    return RedirectToAction("Index", "Home");
+            //}
+            //AddErrors(result);
 
             // If we got this far, something failed, redisplay form
-            return View(model);
         }
 
         //

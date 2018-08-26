@@ -222,13 +222,20 @@
     <Compile Include="Models\Hackathon\UserRole.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Services\LoanRequestService.cs" />
+    <Compile Include="Models\Services\LoanService.cs" />
+    <Compile Include="Models\Services\PaymentService.cs" />
+    <Compile Include="Models\Services\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\demo.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\util.css" />
     <Content Include="Docs\Migrations.txt" />
     <Content Include="favicon.ico" />
@@ -329,6 +336,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\user.main.js" />
     <Content Include="vendor\animate\animate.css" />
     <Content Include="vendor\animsition\css\animsition.css" />
     <Content Include="vendor\animsition\css\animsition.min.css" />
@@ -400,9 +408,13 @@
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Views\UserHome\ShowLoanRequest.cshtml" />
+    <Content Include="Views\UserHome\ShowLoan.cshtml" />
+    <Content Include="Views\Shared\_UserLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
