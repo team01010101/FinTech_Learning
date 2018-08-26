@@ -199,6 +199,7 @@
     </Compile>
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\Enumerators.cs" />
+    <Compile Include="HopClient\HOP_PaymentClient.cs" />
     <Compile Include="Migrations\Hackathon\201808252129483_InitialCreate.cs" />
     <Compile Include="Migrations\Hackathon\201808252129483_InitialCreate.Designer.cs">
       <DependentUpon>201808252129483_InitialCreate.cs</DependentUpon>
