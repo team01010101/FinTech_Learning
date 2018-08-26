@@ -207,10 +207,15 @@
     <Compile Include="Migrations\Hackathon\201808252148172_CreateTables.Designer.cs">
       <DependentUpon>201808252148172_CreateTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Hackathon\201808260146042_LoanTypeTable.cs" />
+    <Compile Include="Migrations\Hackathon\201808260146042_LoanTypeTable.Designer.cs">
+      <DependentUpon>201808260146042_LoanTypeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Hackathon\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Hackathon\Loan.cs" />
     <Compile Include="Models\Hackathon\LoanRequest.cs" />
+    <Compile Include="Models\Hackathon\LoanType.cs" />
     <Compile Include="Models\Hackathon\Notification.cs" />
     <Compile Include="Models\Hackathon\Payment.cs" />
     <Compile Include="Models\Hackathon\User.cs" />
@@ -418,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Hackathon\201808252148172_CreateTables.resx">
       <DependentUpon>201808252148172_CreateTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Hackathon\201808260146042_LoanTypeTable.resx">
+      <DependentUpon>201808260146042_LoanTypeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

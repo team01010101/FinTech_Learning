@@ -14,5 +14,6 @@ namespace FinTechWebApp.Data
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<LoanRequest> LoanRequests { get; set; }
+        public DbSet<LoanType> LoanTypes { get; set; }
     }
 }

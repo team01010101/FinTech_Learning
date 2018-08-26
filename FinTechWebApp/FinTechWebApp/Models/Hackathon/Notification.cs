@@ -14,6 +14,6 @@ namespace FinTechWebApp.Models.Hackathon
         public string Message { get; set; }
 
         [Required]
-        public User UserId { get; set; }
+        public User User { get; set; }
     }
 }

@@ -28,6 +28,8 @@ namespace FinTechWebApp.Models.Hackathon
         [EmailAddress]
         public string EmailAddress { get; set; }
 
+        public int CreditPoints { get; set; }
+
         public ICollection<UserRole> UserRoles { get; set; }
         public ICollection<Loan> Loans { get; set; }
         public ICollection<LoanRequest> Requests { get; set; }
