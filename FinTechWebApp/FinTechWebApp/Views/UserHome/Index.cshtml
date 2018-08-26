@@ -1,4 +1,5 @@
-﻿
+﻿@model List<FinTechWebApp.Models.Hackathon.Loan>
+
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -43,27 +44,16 @@
                             @Html.ActionLink("New Loan", "RequestLoan")
                         </th>
                     </tr>
-                    <tr>
-                        <td>Business</td>
-                        <td>50000srd</td>
-                        <td>
-                            @Html.ActionLink("Pay", "MakePayment")
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>House</td>
-                        <td>10000srd</td>
-                        <td>
-                            @Html.ActionLink("Pay", "MakePayment")
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Car</td>
-                        <td>1000srd</td>
-                        <td>
-                            @Html.ActionLink("Pay", "MakePayment")
-                        </td>
-                    </tr>
+                    @foreach (var loan in Model)
+                    {
+                        <tr>
+                            <td>@loan.Description</td>
+                            <td>@loan.LendAmount SRD</td>
+                            <td>
+                                @Html.ActionLink("Pay", "MakePayment", new { loanGuid = loan.LoanGuid })
+                            </td>
+                        </tr>
+                    }
                 </table>
             </li>
 
@@ -76,27 +66,16 @@
                             
                         </th>
                     </tr>
-                    <tr>
-                        <td>Business</td>
-                        <td>50000srd</td>
-                        <td>
-                            @Html.ActionLink("Show", "ShowLoan")
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>House</td>
-                        <td>10000srd</td>
-                        <td>
-                            @Html.ActionLink("Show", "ShowLoan")
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Car</td>
-                        <td>1000srd</td>
-                        <td>
-                            @Html.ActionLink("Show", "ShowLoan")
-                        </td>
-                    </tr>
+                    @foreach (var loan in Model)
+                    {
+                        <tr>
+                            <td>@loan.Description</td>
+                            <td>@loan.LendAmount SRD</td>
+                            <td>
+                                @Html.ActionLink("Show", "ShowLoan", new {loanGuid = loan.LoanGuid})
+                            </td>
+                        </tr>
+                    }
                 </table>
             </li>
 
@@ -107,21 +86,13 @@
                         <th>Remaining Amount</th>
                        
                     </tr>
-                    <tr>
-                        <td>Business</td>
-                        <td>50000srd</td>
-                       
-                    </tr>
-                    <tr>
-                        <td>House</td>
-                        <td>10000srd</td>
-                      
-                    </tr>
-                    <tr>
-                        <td>Car</td>
-                        <td>1000srd</td>
-              
-                    </tr>
+                    @foreach (var loan in Model)
+                    {
+                        <tr>
+                            <td>@loan.Description</td>
+                            <td>@loan.LendAmount SRD</td>
+                        </tr>
+                    }
                 </table>
             </li>
 

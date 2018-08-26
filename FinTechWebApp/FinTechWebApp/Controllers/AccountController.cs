@@ -71,7 +71,7 @@ namespace FinTechWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
-            if (ModelState.IsValid && UserService.FindUser(model.UserName))
+            if (ModelState.IsValid && UserService.FindUser(model.UserName) != null)
                 return RedirectToAction("Index", "UserHome", new { username = model.UserName});
 
             return View(model);

@@ -47,7 +47,10 @@ namespace FinTechWebApp.MicroServices
 
         public string GetAuthorizationToken(string invoice, double amount)
         {
-            string jsonData = RequestAuthorizationTokenAsync(invoice, amount).GetAwaiter().GetResult();
+
+            //string jsonData = RequestAuthorizationTokenAsync(invoice, amount).GetAwaiter().GetResult();
+            var awaiter = RequestAuthorizationTokenAsync(invoice, amount).GetAwaiter();
+            var jsonData = awaiter.GetResult();
             var jsonObj = JObject.Parse(jsonData);
             if (jsonObj["Code"].ToString() == "0")
             {

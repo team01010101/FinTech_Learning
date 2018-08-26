@@ -1,39 +1,51 @@
-﻿
+﻿@using System.Data.Entity.Migrations.Model
+@model FinTechWebApp.Models.Hackathon.Loan
+
 @{
     ViewBag.Title = "Request Loan";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
+
+
 <div class="table1">
-    @using (Html.BeginForm("RequestALoan", "UserHome", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+    @using (Html.BeginForm("RequestLoan", "UserHome", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new {role = "form"}))
     {
-        <label for="sortloan">Loan type</label><br>
+        @Html.Hidden("UserId")
+        @Html.Hidden("Username")
+        @Html.Hidden("LoanGuid")
+        @Html.Hidden("Status")
+        @Html.Hidden("DisbursementAmount")
+        @Html.Hidden("ExpirationDate")
+        @Html.Hidden("OutstandingBalance")
+        <br>
+        <br>
+        <div class="form-group">
+            @Html.LabelFor(m => m.LoanType)
 
-        <select class="drop-menu">
-            <option value="volvo">Empty...</option>
-            <option value="saab">Car Loan</option>
-            <option value="opel">Personal Loan</option>
-            <option value="audi">Morgage Loan</option>
-        </select>
-
-        <br>
-        <label for="merk">Employment type</label><br>
-        <select class="drop-menu">
-            <option value="volvo">Empty...</option>
-            <option value="saab">Full-Time</option>
-            <option value="opel">Part-Time</option>
-        </select>
+            @Html.DropDownListFor(m => m.LoanType, new List<SelectListItem>
+            {
+                new SelectListItem {Value = "0", Text = "Empty..."},
+                new SelectListItem {Value = "1", Text = "Car Loan"}, new SelectListItem {Value = "2", Text = "Personal Loan"},
+                new SelectListItem {Value = "3", Text = "Morgage Loan"}
+            }, new {@class = "drop-menu"})
+        </div>
         <br>
         <br>
-        <label for="merk">Request - Amount</label><br>
-        <input type="text" name="Amount1" value="" required placeholder="SRD..." /><br>
-        <label for="model">Monthly Income</label><br>
-        <input type="text" name="Amount2" value="" required placeholder="SRD..." /><br>
-        <label for="datum">Payment Date</label><br>
-        <input type="date" name="Datum" value="" required />
+        <div class="form-group">
+            @Html.LabelFor(m => m.Description)
+            @Html.TextBoxFor(m => m.Description, new {required = "required"})
+        </div>
+        <br>
+        <br>
+        <div class="form-group">
+            @Html.LabelFor(m => m.LendAmount)
+            @Html.TextBoxFor(m => m.LendAmount, new {required = "required"})
+        </div>
+        <br>
         <br>
         <p>
-            @Html.ActionLink("Request Loan", "Index", new { username = "elena" })
+            <input type="submit" value="Request Loan"/>
         </p>
     }
 </div>

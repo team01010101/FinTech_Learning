@@ -9,12 +9,20 @@ namespace FinTechWebApp.Models.Services
 {
     public class LoanService
     {
+        public static Loan FindLoan(Guid loanGuid)
+        {
+            using (var context = new HackathonContext())
+            {
+                return context.Loans.Find(loanGuid);
+            }
+        }
+
         public static List<Loan> GetLoans(string username, short loanStatus)
         {
             using (var context = new HackathonContext())
             {
                 return context.Loans
-                    .Where(x => x.User.Username == username
+                    .Where(x => x.Username == username
                                 && x.Status == loanStatus).ToList();
             }
         }
@@ -25,12 +33,17 @@ namespace FinTechWebApp.Models.Services
             {
                 using (var context = new HackathonContext())
                 {
+                    request.DisbursementAmount = 100;
+                    request.ExpirationDate = new DateTime(2020, 12, 31);
+                    request.OutstandingBalance = 10;
+                    request.UserId = context.Users.FirstOrDefault(x => x.Username == request.Username)?.UserId;
+
                     context.Loans.Add(request);
                     context.SaveChanges();
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //ignored
             }

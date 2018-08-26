@@ -10,24 +10,12 @@ namespace FinTechWebApp.Models.Services
 {
     public class UserService
     {
-        public static bool FindUser(string username)
+        public static User FindUser(string username)
         {
-            try
+            using (var context = new HackathonContext())
             {
-                using (var context = new HackathonContext())
-                {
-                    if (context.Users.FirstOrDefault(x => x.Username == username) != null)
-                    {
-                        return true;
-                    }
-                }
+                return context.Users.FirstOrDefault(x => x.Username == username);
             }
-            catch (Exception)
-            {
-                // ignored
-            }
-
-            return false;
         }
 
         public static bool AddUser(RegisterViewModel model)

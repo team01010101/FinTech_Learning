@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -12,10 +14,10 @@ namespace FinTechWebApp.Models.Hackathon
         public Guid LoanGuid { get; set; }
 
         [Required]
-        public LoanType LoanType { get; set; }
+        public short LoanType { get; set; }
 
         [Required]
-        public User User { get; set; }
+        public string Username { get; set; }
 
         [Required]
         public string Description { get; set; }
@@ -32,5 +34,10 @@ namespace FinTechWebApp.Models.Hackathon
         public short Status { get; set; }
 
         public ICollection<Payment> Payments { get; set; }
+
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual User User { get; set; }
+
     }
 }
