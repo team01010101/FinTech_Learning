@@ -10,7 +10,7 @@ namespace FinTechWebApp.Models.Hackathon
     {
         [Key]
         [Required]
-        [StringLength(10, MinimumLength = 4)]
+        [StringLength(10, MinimumLength = 2)]
         public string UserId { get; set; }
         [Required]
         [StringLength(50, MinimumLength = 2)]
@@ -19,7 +19,7 @@ namespace FinTechWebApp.Models.Hackathon
         [StringLength(50, MinimumLength = 2)]
         public string LastName { get; set; }
         [Required]
-        [StringLength(50, MinimumLength = 4)]
+        [StringLength(50, MinimumLength = 2)]
         public string Username { get; set; }
         [Required]
         [DataType(DataType.Password)]
