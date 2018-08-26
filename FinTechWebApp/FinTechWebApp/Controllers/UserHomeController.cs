@@ -15,13 +15,16 @@ namespace FinTechWebApp.Controllers
             return View(LoanService.GetLoans(username, (short)Enumerators.LoanRequestStatus.Approved));
         }
 
-        [HttpPost]
-        public ActionResult CreateLoanRequest(LoanRequest loanRequest)
+        [HttpGet]
+        public ActionResult RequestLoan()
         {
-            if (ModelState.IsValid)
-                LoanRequestService.AddLoanRequest(loanRequest);
+            return View();
+        }
 
-            return RedirectToAction("Index");
+        [HttpPost]
+        public ActionResult RequestALoan()
+        {
+            return Index("elena");
         }
 
         public ActionResult ShowLoanRequest(Guid loanRequestGuid)
@@ -38,33 +41,39 @@ namespace FinTechWebApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ShowLoan(Guid loanGuid)
+        [HttpGet]
+        public ActionResult ShowLoan()
         {
-            using (var context = new HackathonContext())
-            {
-                var request = context.Loans.Find(loanGuid);
-
-                if (request != null)
-                    return View(request);
-
-            }
-
-            return RedirectToAction("Index");
+            return View();
         }
 
         [HttpPost]
-        public ActionResult MakePayment(Loan loan)
+        public ActionResult ShowALoan()
+        {
+            return Index("elena");
+        }
+
+        public ActionResult MakePayment()
         {
             if (ModelState.IsValid)
             {
-                using (var context = new HackathonContext())
+                try
                 {
-                    context.Loans.Remove(loan);
-                    context.SaveChanges();
-
-                    //Set creditpoint
+                    using (var context = new HackathonContext())
+                    {
+                        var loan = context.Loans.Find(Constants.LoanGuid());
+                        if (loan != null)
+                        {
+                            context.Loans.Remove(loan);
+                            context.SaveChanges();
+                            return RedirectToAction("ShowLoan");
+                        }
+                    }
                 }
-
+                catch (Exception e)
+                {
+                    // ignored
+                }
             }
 
             return RedirectToAction("ShowLoanRequest");

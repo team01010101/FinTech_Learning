@@ -411,6 +411,7 @@
     <Content Include="Views\UserHome\ShowLoanRequest.cshtml" />
     <Content Include="Views\UserHome\ShowLoan.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\UserHome\RequestLoan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

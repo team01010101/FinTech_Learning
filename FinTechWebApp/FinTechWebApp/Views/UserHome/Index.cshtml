@@ -37,32 +37,31 @@
             <li data-content="inbox" class="cd-selected">
                 <table id="customers">
                     <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
+                        <th>Loan Description</th>
+                        <th>Remaining Amount</th>
+                        <th>
+                            @Html.ActionLink("New Loan", "RequestLoan")
+                        </th>
                     </tr>
                     <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
+                        <td>Business</td>
+                        <td>50000srd</td>
                         <td>
-                            <button class="btn"> Pay </button>
-                            <button class="btn"> Show </button>
+                            @Html.ActionLink("Pay", "MakePayment")
                         </td>
                     </tr>
                     <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
+                        <td>House</td>
+                        <td>10000srd</td>
                         <td>
-                            <button class="btn"> Pay </button>
-                            <button class="btn"> Show </button>
+                            @Html.ActionLink("Pay", "MakePayment")
                         </td>
                     </tr>
                     <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
+                        <td>Car</td>
+                        <td>1000srd</td>
                         <td>
-                            <button class="btn"> Pay </button>
-                            <button class="btn"> Show </button>
+                            @Html.ActionLink("Pay", "MakePayment")
                         </td>
                     </tr>
                 </table>
@@ -71,29 +70,31 @@
             <li data-content="new">
                 <table id="customers">
                     <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
+                        <th>Loan Description</th>
+                        <th>Remaining Amount</th>
+                        <th>
+                            
+                        </th>
                     </tr>
                     <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
+                        <td>Business</td>
+                        <td>50000srd</td>
                         <td>
-                            <button class="btn"> Show </button>
+                            @Html.ActionLink("Show", "ShowLoan")
                         </td>
                     </tr>
                     <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
+                        <td>House</td>
+                        <td>10000srd</td>
                         <td>
-                            <button class="btn"> Show </button>
+                            @Html.ActionLink("Show", "ShowLoan")
                         </td>
                     </tr>
                     <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
+                        <td>Car</td>
+                        <td>1000srd</td>
                         <td>
-                            <button class="btn"> Show </button>
+                            @Html.ActionLink("Show", "ShowLoan")
                         </td>
                     </tr>
                 </table>
@@ -102,20 +103,24 @@
             <li data-content="gallery">
                 <table id="customers">
                     <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
+                        <th>Loan Description</th>
+                        <th>Remaining Amount</th>
+                       
                     </tr>
                     <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
+                        <td>Business</td>
+                        <td>50000srd</td>
+                       
                     </tr>
                     <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
+                        <td>House</td>
+                        <td>10000srd</td>
+                      
                     </tr>
                     <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
+                        <td>Car</td>
+                        <td>1000srd</td>
+              
                     </tr>
                 </table>
             </li>

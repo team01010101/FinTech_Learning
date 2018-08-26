@@ -265,7 +265,116 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
+        body {
+            background-color: #f3f3f3;
+        }
+
+        .table1 {
+            padding-top: 10px;
+            width: 450px;
+            height: 530px;
+            border: none;
+            background-color: #ce3245;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            box-shadow: 10px 7px 19px 0px #000040;
+        }
+
+        form {
+            color: white;
+            font-family: Arial;
+            padding: 20px;
+            text-align: center;
+        }
+
+        label {
+            color: white;
+        }
+
+        input[type=text], [type=date] {
+            width: 80%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+            color: grey;
+            background-color: white;
+            font-size: 15px;
+        }
+
+        input[type=submit] {
+            border: none;
+            border-radius: 10px;
+            padding: 14px 50px;
+            text-align: center;
+            display: inline-block;
+            font-size: 14px;
+            transition-duration: 0.2s;
+            cursor: pointer;
+            background-color: white;
+            color: #ce3245;
+            margin-top: 15px;
+        }
+
+        select[option=value], [value=1] {
+            border: none;
+            border-radius: 10px;
+            padding: 14px 50px;
+            text-align: center;
+            display: inline-block;
+            font-size: 18px;
+            transition-duration: 0.2s;
+            cursor: pointer;
+            position: relative;
+            background-color: white;
+            color: #ce3245;
+            border: 2px solid #ed4e70;
+        }
+
+        input[type=submit]:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .drop-menu {
+            width: 80%;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+
+        snackbar {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #5cb76f;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 25px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+        }
+
+        #snackbar.btn {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        
     </style>
+    
     <link rel="stylesheet" href="/Content/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="/Content/style.css"> <!-- Resource style -->
     <link rel="stylesheet" href="/Content/demo.css"> <!-- Demo style -->

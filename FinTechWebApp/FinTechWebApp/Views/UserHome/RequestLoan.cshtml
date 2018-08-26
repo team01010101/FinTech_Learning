@@ -1,11 +1,11 @@
 ﻿
 @{
-    ViewBag.Title = "Show Loan";
+    ViewBag.Title = "Request Loan";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
 <div class="table1">
-    @using (Html.BeginForm("ShowALoan", "UserHome", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new { role = "form"}))
+    @using (Html.BeginForm("RequestALoan", "UserHome", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
     {
         <label for="sortloan">Loan type</label><br>
 
@@ -26,14 +26,14 @@
         <br>
         <br>
         <label for="merk">Request - Amount</label><br>
-        <input type="text" name="Amount1" value="" required placeholder="SRD..."/><br>
+        <input type="text" name="Amount1" value="" required placeholder="SRD..." /><br>
         <label for="model">Monthly Income</label><br>
-        <input type="text" name="Amount2" value="" required placeholder="SRD..."/><br>
+        <input type="text" name="Amount2" value="" required placeholder="SRD..." /><br>
         <label for="datum">Payment Date</label><br>
-        <input type="date" name="Datum" value="" required/>
+        <input type="date" name="Datum" value="" required />
         <br>
         <p>
-            @Html.ActionLink("Back", "Index", new {username = "elena"})
+            @Html.ActionLink("Request Loan", "Index", new { username = "elena" })
         </p>
     }
 </div>
