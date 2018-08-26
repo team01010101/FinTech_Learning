@@ -17,6 +17,9 @@ namespace FinTechWebApp.Models.Hackathon
         [Required]
         public User User { get; set; }
 
+        [Required]
+        public string Description { get; set; }
+
         public double LendAmount { get; set; }
 
         public double DisbursementAmount { get; set; }
